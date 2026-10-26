@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Laraib Fatima — Computer Science Student, Certified Graphic Designer, and AI Enthusiast Portfolio">
+  <title>Laraib Fatima — Designer & CS Student</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --cream: #FDF8F3;
+      --ink: #14213D;
+      --coral: #FF6B5B;
+      --amber: #FFB627;
+      --teal: #2EC4B6;
+      --soft: #6B7280;
+      --card: #FFFFFF;
+      --light-gray: #F3F4F6;
+      --success: #10B981;
+    }
+    
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+    ::selection { background: var(--amber); color: var(--ink); }
+
+    /* ---------- NAVIGATION ---------- */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: #ffffff;
+      border: 2px solid var(--ink);
+      border-radius: 60px;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      box-shadow: 4px 4px 0 var(--ink);
+      width: min(92%, 860px);
+      justify-content: space-between;
+    }
+    
+    nav .brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    nav .brand em { color: var(--coral); font-style: normal; }
+    
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 40px;
+      transition: all 0.25s ease;
+    }
+    .nav-links a:hover { background: var(--ink); color: #fff; }
+    
+    .nav-cta {
+      background: var(--coral) !important;
+      color: #fff !important;
+      border: 2px solid var(--ink);
+      border-radius: 40px;
+      padding: 8px 18px !important;
+      font-weight: 600 !important;
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+    .nav-cta:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--ink) !important;
+    }
+    
+    .menu-btn {
+      display: none;
+      border: 2px solid var(--ink);
+      background: #fff;
+      border-radius: 12px;
+      font-size: 1.3rem;
+      padding: 4px 10px;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
+      gap: 40px;
+      padding: 140px 7% 70px;
+      position: relative;
+    }
+    
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: 40px;
+      padding: 7px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse { 50% { opacity: 0.3; transform: scale(0.85); } }
+    
+    .hero h1 {
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .hero h1 .hl {
+      color: var(--coral);
+      position: relative;
+      white-space: nowrap;
+      display: inline-block;
+    }
+    .hero h1 .hl::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 6px;
+      height: 14px;
+      background: var(--amber);
+      z-index: -1;
+      transform: rotate(-1.5deg);
+      border-radius: 4px;
+    }
+    .hero h1 em { font-style: italic; color: var(--teal); }
+    
+    .hero p.sub {
+      margin: 22px 0 34px;
+      color: var(--soft);
+      font-size: 1.1rem;
+      max-width: 520px;
+      line-height: 1.65;
+    }
+    
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 30px;
+      border-radius: 50px;
+      border: 2px solid var(--ink);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .btn-dark {
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 4px 4px 0 var(--coral);
+    }
+    .btn-dark:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--coral);
+    }
+    .btn-ghost {
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 4px 4px 0 var(--amber);
+    }
+    .btn-ghost:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--amber);
+    }
+
+    /* Hero Avatar Graphic */
+    .hero-visual { position: relative; display: flex; justify-content: center; }
+    .blob-wrap {
+      width: min(390px, 82vw);
+      aspect-ratio: 1;
+      border-radius: 42% 58% 55% 45% / 45% 42% 58% 55%;
+      background: linear-gradient(135deg, var(--coral), var(--amber));
+      border: 3px solid var(--ink);
+      position: relative;
+      animation: blob 8s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+    @keyframes blob { 50% { border-radius: 55% 45% 42% 58% / 55% 55% 45% 42%; } }
+    
+    .avatar {
+      width: 82%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--ink);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 4.8rem;
+      font-weight: 800;
+      color: var(--coral);
+      user-select: none;
+    }
+    
+    .sticker {
+      position: absolute;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: 16px;
+      padding: 10px 16px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 4px 4px 0 var(--ink);
+      animation: float 4s ease-in-out infinite;
+      white-space: nowrap;
+    }
+    .s1 { top: -4%; left: -6%; color: var(--coral); }
+    .s2 { bottom: 6%; left: -10%; color: var(--teal); animation-delay: 0.8s; }
+    .s3 { top: 22%; right: -8%; color: var(--amber); animation-delay: 1.4s; }
+    @keyframes float { 50% { transform: translateY(-10px) rotate(2deg); } }
+
+    /* ---------- MARQUEE ---------- */
+    .marquee {
+      background: var(--ink);
+      color: var(--cream);
+      overflow: hidden;
+      padding: 18px 0;
+      transform: rotate(-1.5deg) scale(1.02);
+      border-top: 3px solid var(--ink);
+      border-bottom: 3px solid var(--ink);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: scroll 22s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-track span {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      padding: 0 24px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .marquee-track span::after {
+      content: '✦';
+      color: var(--amber);
+      margin-left: 48px;
+    }
+    @keyframes scroll { to { transform: translateX(-50%); } }
+
+    /* ---------- SECTIONS & HEADINGS ---------- */
+    section { padding: 110px 7%; }
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 54px;
+      flex-wrap: wrap;
+    }
+    .sec-head h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); font-weight: 800; }
+    .sec-head .num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--coral);
+      font-size: 1rem;
+      border: 2px solid var(--ink);
+      border-radius: 40px;
+      padding: 4px 16px;
+      box-shadow: 3px 3px 0 var(--ink);
+      background: #fff;
+    }
+    .sec-head .line { flex: 1; height: 2px; background: var(--ink); opacity: 0.15; }
+
+    /* ---------- 01. ABOUT ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 50px;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--soft);
+      margin-bottom: 20px;
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+    .about-text strong { color: var(--ink); }
+    .about-text .sign {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--coral);
+      margin-top: 14px;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .stat {
+      background: var(--card);
+      border: 2px solid var(--ink);
+      border-radius: 20px;
+      padding: 26px 18px;
+      text-align: center;
+      box-shadow: 5px 5px 0 var(--ink);
+      transition: all 0.25s ease;
+    }
+    .stat:hover { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+    .stat b {
+      font-size: 2.3rem;
+      font-family: 'Playfair Display', serif;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat:nth-child(1) b { color: var(--coral); }
+    .stat:nth-child(2) b { color: var(--teal); }
+    .stat:nth-child(3) b { color: var(--amber); }
+    .stat:nth-child(4) b { color: var(--coral); }
+    .stat small { color: var(--soft); font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* ---------- 02. EDUCATION ---------- */
+    .edu-section {
+      background: #fff;
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+    }
+    .edu-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .edu-card {
+      background: var(--card);
+      border: 2px solid var(--ink);
+      border-radius: 24px;
+      padding: 34px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+    }
+    .edu-card:nth-child(1)::before { background: var(--coral); }
+    .edu-card:nth-child(2)::before { background: var(--amber); }
+    .edu-card:nth-child(3)::before { background: var(--teal); }
+    .edu-card:hover {
+      transform: translateY(-8px) rotate(-0.5deg);
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+    .edu-card .year-tag {
+      display: inline-block;
+      background: var(--cream);
+      border: 2px solid var(--ink);
+      border-radius: 30px;
+      padding: 5px 15px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .edu-card h3 { font-size: 1.35rem; margin-bottom: 6px; }
+    .edu-card .inst {
+      color: var(--coral);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+    .edu-card p { color: var(--soft); font-size: 0.93rem; line-height: 1.6; }
+
+    /* ---------- 03. SKILLS ---------- */
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .bar-item { margin-bottom: 26px; }
+    .bar-item .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.98rem;
+    }
+    .bar-bg {
+      height: 16px;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: 30px;
+      overflow: hidden;
+      padding: 1px;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 30px;
+      width: 0;
+      transition: width 1.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .f1 { background: linear-gradient(90deg, var(--coral), #ff9a8b); }
+    .f2 { background: linear-gradient(90deg, var(--amber), #ffd56b); }
+    .f3 { background: linear-gradient(90deg, var(--teal), #7be0d8); }
+    .f4 { background: linear-gradient(90deg, #9b5de5, #c39cf4); }
+    
+    .skill-note {
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 28px;
+      padding: 38px;
+      position: relative;
+      box-shadow: 6px 6px 0 var(--coral);
+    }
+    .skill-note h3 {
+      font-size: 1.7rem;
+      margin-bottom: 16px;
+    }
+    .skill-note h3 em { color: var(--amber); }
+    .skill-note p {
+      color: #cfd4e4;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .tool-cloud {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tool {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 7px 16px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .tool:hover {
+      background: var(--amber);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    /* ---------- 04. WORK ---------- */
+    .work-section {
+      background: #fff;
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+    }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .work-card {
+      border: 2px solid var(--ink);
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--card);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+    .work-card:hover {
+      transform: translateY(-8px) rotate(0.8deg);
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+    .work-thumb {
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      user-select: none;
+      transition: transform 0.3s;
+    }
+    .work-card:hover .work-thumb { transform: scale(1.08); }
+    .wt1 { background: linear-gradient(135deg, #ffd6c9, #ff9a8b); }
+    .wt2 { background: linear-gradient(135deg, #fff1c9, #ffd56b); }
+    .wt3 { background: linear-gradient(135deg, #c9f5f0, #7be0d8); }
+    .wt4 { background: linear-gradient(135deg, #e5d4ff, #c39cf4); }
+    .wt5 { background: linear-gradient(135deg, #d4e5ff, #8fb8f4); }
+    .wt6 { background: linear-gradient(135deg, #ffe0ec, #ff9ecb); }
+    
+    .work-body { padding: 22px 24px; }
+    .work-body h4 { font-size: 1.2rem; margin-bottom: 4px; }
+    .work-body small { color: var(--soft); font-weight: 500; font-size: 0.9rem; }
+    .work-tag {
+      float: right;
+      font-size: 0.72rem;
+      background: var(--cream);
+      border: 1.5px solid var(--ink);
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-weight: 700;
+    }
+
+    /* ---------- 05. CONTACT & INTERACTIVE FORM ---------- */
+    .contact-box {
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 36px;
+      padding: 70px 7%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 8px 8px 0 var(--coral);
+      border: 2px solid var(--ink);
+    }
+    .contact-box::before, .contact-box::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .contact-box::before {
+      width: 280px;
+      height: 280px;
+      background: var(--coral);
+      filter: blur(100px);
+      top: -80px;
+      left: -60px;
+    }
+    .contact-box::after {
+      width: 280px;
+      height: 280px;
+      background: var(--teal);
+      filter: blur(100px);
+      bottom: -80px;
+      right: -60px;
+    }
+    
+    .contact-header { text-align: center; margin-bottom: 44px; position: relative; z-index: 2; }
+    .contact-box h2 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin-bottom: 14px;
+    }
+    .contact-box h2 em { color: var(--amber); }
+    .contact-box p.intro {
+      color: #cfd4e4;
+      max-width: 580px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    /* Contact Layout: Form + Quick Chips */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: start;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* The HTML Form */
+    .contact-form-card {
+      background: #ffffff;
+      color: var(--ink);
+      border-radius: 24px;
+      padding: 36px 32px;
+      border: 2px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--amber);
+    }
+    .form-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: var(--cream);
+      outline: none;
+      transition: all 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--coral);
+      background: #fff;
+      box-shadow: 3px 3px 0 var(--coral);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .submit-btn {
+      width: 100%;
+      background: var(--coral);
+      color: #fff;
+      border: 2px solid var(--ink);
+      padding: 14px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--ink);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .submit-btn:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--ink);
+      background: #ff5240;
+    }
+
+    /* Form Alert Message */
+    .form-alert {
+      display: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      border: 2px solid var(--ink);
+    }
+    .form-alert.success {
+      display: block;
+      background: #D1FAE5;
+      color: #065F46;
+      border-color: #065F46;
+    }
+
+    /* Direct Contact & Social Links */
+    .contact-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .direct-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 26px;
+      backdrop-filter: blur(10px);
+    }
+    .direct-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+      color: var(--amber);
+    }
+    .direct-card p {
+      color: #cfd4e4;
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .chip {
+      text-decoration: none;
+      color: var(--cream);
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      padding: 12px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .chip:hover {
+      background: var(--amber);
+      color: var(--ink);
+      border-color: var(--amber);
+      transform: translateX(6px);
+    }
+    .chip.main {
+      background: var(--coral);
+      border-color: var(--coral);
+      color: #fff;
+    }
+    .chip.main:hover {
+      background: #fff;
+      color: var(--ink);
+      border-color: #fff;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 40px 7%;
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+    footer b { color: var(--ink); }
+
+    /* ---------- REVEAL ANIMATIONS ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ---------- MODAL FOR WORK ITEMS ---------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 33, 61, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-content {
+      background: #fff;
+      border: 3px solid var(--ink);
+      border-radius: 28px;
+      max-width: 520px;
+      width: 100%;
+      padding: 32px;
+      position: relative;
+      box-shadow: 8px 8px 0 var(--coral);
+      animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #fff;
+      border: 2px solid var(--ink);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-close:hover { background: var(--coral); color: #fff; }
+
+    /* ---------- RESPONSIVE DESIGN ---------- */
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 130px;
+      }
+      .hero p.sub, .hero-btns {
+        margin-inline: auto;
+        justify-content: center;
+      }
+      .about-grid, .skills-wrap, .contact-layout {
+        grid-template-columns: 1fr;
+      }
+      .edu-row, .work-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 680px) {
+      nav { width: 92%; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        border: 2px solid var(--ink);
+        border-radius: 24px;
+        padding: 16px;
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+      .nav-links.open { display: flex; }
+      .menu-btn { display: block; }
+      .form-row { grid-template-columns: 1fr; }
+      .edu-row, .work-grid, .stats { grid-template-columns: 1fr; }
+      .s2 { left: -4%; }
+      .s3 { right: -4%; }
+      .hero h1 { font-size: 2.3rem; }
+      .contact-box { padding: 48px 5%; }
+      .contact-form-card { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav>
+    <a href="#top" class="brand">laraib<em>.</em>fatima</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="closeNav()">About</a></li>
+      <li><a href="#education" onclick="closeNav()">Education</a></li>
+      <li><a href="#skills" onclick="closeNav()">Skills</a></li>
+      <li><a href="#work" onclick="closeNav()">Work</a></li>
+      <li><a href="#contact" class="nav-cta" onclick="closeNav()">Let's Talk</a></li>
+    </ul>
+    <button class="menu-btn" id="menuToggle" aria-label="Toggle navigation">☰</button>
+  </nav>
+
+  <main id="top">
+    <!-- ===== HERO SECTION ===== -->
+    <header class="hero">
+      <div class="reveal">
+        <span class="hero-kicker">
+          <span class="dot"></span> Open to freelance & internships
+        </span>
+        <h1>
+          Designing ideas<br>
+          into <span class="hl">visual stories</span><br>
+          <em>&amp; smart futures.</em>
+        </h1>
+        <p class="sub">
+          Hey! I'm <b>Laraib Fatima</b> — a Computer Science student, certified
+          Graphic Designer, and exploring the frontiers of
+          <b>Artificial Intelligence</b>. Creativity meets logic, right here.
+        </p>
+        <div class="hero-btns">
+          <a href="#work" class="btn btn-dark">View My Work ✦</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="blob-wrap">
+          <div class="avatar" title="Laraib Fatima">
+            L<span style="color:var(--teal)">F</span>
+          </div>
+          <span class="sticker s1">🎨 Graphic Designer</span>
+          <span class="sticker s2">🤖 AI Learner</span>
+          <span class="sticker s3">💻 CS Student</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== INFINITE MARQUEE ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack">
+        <span>Graphic Design</span>
+        <span>Artificial Intelligence</span>
+        <span>Computer Science</span>
+        <span>Logo &amp; Branding</span>
+        <span>Photoshop</span>
+        <span>Illustrator</span>
+        <span>Prompt Engineering</span>
+        <span>Creative Direction</span>
+      </div>
+    </div>
+
+    <!-- ===== 01. ABOUT ME ===== -->
+    <section id="about">
+      <div class="sec-head reveal">
+        <span class="num">01</span>
+        <h2>About Me</h2>
+        <span class="line"></span>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm <strong>Laraib Fatima</strong>, a <strong>BS Computer Science</strong> student who
+            believes great things happen when technology meets creative design. My journey began with
+            curiosity about how computers function behind the scenes — and took a vibrant turn when I discovered visual art.
+          </p>
+          <p>
+            I completed a professional <strong>Graphic Design course</strong>, mastering the art of creating
+            logos, social media branding, posters, and comprehensive brand identities. Now, I'm immersing myself in
+            <strong>Artificial Intelligence</strong> — exploring neural networks, generative AI, and how intelligent
+            systems can elevate design workflows.
+          </p>
+          <p>
+            My goal? To be a <strong>designer who codes and an AI enthusiast who creates</strong> —
+            building software and brand experiences that are both visually captivating and technically robust.
+          </p>
+          <div class="sign">— Laraib Fatima</div>
+        </div>
+
+        <div class="stats reveal">
+          <div class="stat">
+            <b>3+</b>
+            <small>Creative Disciplines</small>
+          </div>
+          <div class="stat">
+            <b>100%</b>
+            <small>Dedication</small>
+          </div>
+          <div class="stat">
+            <b>∞</b>
+            <small>Curious Mind</small>
+          </div>
+          <div class="stat">
+            <b>2025</b>
+            <small>AI Journey Begins</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 02. EDUCATION ===== -->
+    <section id="education" class="edu-section">
+      <div class="sec-head reveal">
+        <span class="num">02</span>
+        <h2>Education</h2>
+        <span class="line"></span>
+      </div>
+      <div class="edu-row">
+        <div class="edu-card reveal">
+          <span class="year-tag">🎓 Present</span>
+          <h3>BS Computer Science</h3>
+          <div class="inst">— Currently Enrolled —</div>
+          <p>Studying programming fundamentals, data structures, algorithms, databases, and web technologies while executing real-world code projects.</p>
+        </div>
+
+        <div class="edu-card reveal">
+          <span class="year-tag">📗 Intermediate</span>
+          <h3>FSc (Pre-Engineering / CS)</h3>
+          <div class="inst">FG Girls Public College</div>
+          <p>Completed Higher Secondary School Certificate with strong academic performance and a deep passion for computing sciences.</p>
+        </div>
+
+        <div class="edu-card reveal">
+          <span class="year-tag">📘 Matriculation</span>
+          <h3>Matric (Science)</h3>
+          <div class="inst">FG Girls Public School</div>
+          <p>Completed Secondary School Education with top grades, establishing a solid foundation in analytical thinking and discipline.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03. SKILLS & TOOLS ===== -->
+    <section id="skills">
+      <div class="sec-head reveal">
+        <span class="num">03</span>
+        <h2>Skills &amp; Tools</h2>
+        <span class="line"></span>
+      </div>
+      <div class="skills-wrap">
+        <div class="reveal">
+          <div class="bar-item">
+            <div class="bar-label">
+              <span>🎨 Graphic Design &amp; Visual Identity</span>
+              <span>90%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill f1" data-w="90%"></div>
+            </div>
+          </div>
+
+          <div class="bar-item">
+            <div class="bar-label">
+              <span>🖌️ Adobe Photoshop &amp; Illustrator</span>
+              <span>85%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill f2" data-w="85%"></div>
+            </div>
+          </div>
+
+          <div class="bar-item">
+            <div class="bar-label">
+              <span>💻 Programming (C++, HTML5, CSS3)</span>
+              <span>70%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill f3" data-w="70%"></div>
+            </div>
+          </div>
+
+          <div class="bar-item">
+            <div class="bar-label">
+              <span>🤖 Artificial Intelligence &amp; Prompting</span>
+              <span>40%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill f4" data-w="40%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-note reveal">
+          <h3>Always <em>learning</em>, always creating.</h3>
+          <p>
+            My design coursework taught me visual balance, color theory, and persuasive branding.
+            Now my CS degree and AI studies are teaching me the science behind intelligent algorithms —
+            and I'm passionate about merging both to build things people remember.
+          </p>
+          <div class="tool-cloud">
+            <span class="tool">Adobe Photoshop</span>
+            <span class="tool">Adobe Illustrator</span>
+            <span class="tool">Canva</span>
+            <span class="tool">Figma</span>
+            <span class="tool">C++</span>
+            <span class="tool">HTML5</span>
+            <span class="tool">CSS3</span>
+            <span class="tool">Python</span>
+            <span class="tool">Generative AI</span>
+            <span class="tool">Prompt Engineering</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 04. MY WORK ===== -->
+    <section id="work" class="work-section">
+      <div class="sec-head reveal">
+        <span class="num">04</span>
+        <h2>My Work</h2>
+        <span class="line"></span>
+      </div>
+      <div class="work-grid">
+        <div class="work-card reveal" onclick="openWorkModal('Logo Design & Branding', 'Branding', 'Minimalist, memorable logos, color palettes, and typographic identity kits tailored for startups and digital brands.', '🪄')">
+          <div class="work-thumb wt1">🪄</div>
+          <div class="work-body">
+            <span class="work-tag">Branding</span>
+            <h4>Logo Design</h4>
+            <small>Minimal &amp; modern brand marks</small>
+          </div>
+        </div>
+
+        <div class="work-card reveal" onclick="openWorkModal('Social Media Creatives', 'Social Media', 'High-engagement Instagram carousels, promotional banners, and visual storytelling kits designed in Photoshop and Illustrator.', '📱')">
+          <div class="work-thumb wt2">📱</div>
+          <div class="work-body">
+            <span class="work-tag">Social Media</span>
+            <h4>Instagram Posts</h4>
+            <small>Eye-catching creatives &amp; campaigns</small>
+          </div>
+        </div>
+
+        <div class="work-card reveal" onclick="openWorkModal('Print Media & Flyers', 'Print', 'Event posters, business brochures, and magazine adverts created with precise typography and CMYK print standards.', '🖼️')">
+          <div class="work-thumb wt3">🖼️</div>
+          <div class="work-body">
+            <span class="work-tag">Print</span>
+            <h4>Posters &amp; Flyers</h4>
+            <small>Bold layouts that grab attention</small>
+          </div>
+        </div>
+
+        <div class="work-card reveal" onclick="openWorkModal('AI Experiments & Synthesis', 'AI', 'Prompt engineering experiments, generative art creation, and exploring AI-assisted design workflows.', '🤖')">
+          <div class="work-thumb wt4">🤖</div>
+          <div class="work-body">
+            <span class="work-tag">AI</span>
+            <h4>AI Experiments</h4>
+            <small>Prompting &amp; generative design</small>
+          </div>
+        </div>
+
+        <div class="work-card reveal" onclick="openWorkModal('Web Development Assignments', 'Code', 'Clean, responsive web interfaces crafted with HTML5, CSS3, and JavaScript adhering to modern UX principles.', '💻')">
+          <div class="work-thumb wt5">💻</div>
+          <div class="work-body">
+            <span class="work-tag">Code</span>
+            <h4>Web Projects</h4>
+            <small>HTML/CSS pages &amp; CS assignments</small>
+          </div>
+        </div>
+
+        <div class="work-card reveal" onclick="openWorkModal('Freelance Client Solutions', 'Freelance', 'Delivered bespoke marketing creatives and branding assets for individual clients and small local businesses.', '✨')">
+          <div class="work-thumb wt6">✨</div>
+          <div class="work-body">
+            <span class="work-tag">Freelance</span>
+            <h4>Client Work</h4>
+            <small>Custom designs for real-world needs</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 05. CONTACT SECTION WITH INTERACTIVE FORM ===== -->
+    <section id="contact">
+      <div class="contact-box reveal">
+        <div class="contact-header">
+          <h2>Let's create something <em>amazing</em> together.</h2>
+          <p class="intro">
+            Have a project in mind, an internship opportunity, or want to collaborate on design and AI?
+            Fill out the form below or connect via direct links!
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- The HTML Contact Form -->
+          <div class="contact-form-card">
+            <h3 class="form-title">
+              <span>✉️</span> Send a Message
+            </h3>
+            
+            <div id="formAlert" class="form-alert"></div>
+
+            <form id="portfolioContactForm" onsubmit="handleFormSubmit(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="userName">Your Name *</label>
+                  <input type="text" id="userName" name="name" required placeholder="e.g. Ayesha Khan">
+                </div>
+                <div class="form-group">
+                  <label for="userEmail">Your Email *</label>
+                  <input type="email" id="userEmail" name="email" required placeholder="name@example.com">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="serviceType">Service / Interest</label>
+                <select id="serviceType" name="service">
+                  <option value="Graphic Design / Branding">Graphic Design / Branding</option>
+                  <option value="Social Media Posts & Creatives">Social Media Posts & Creatives</option>
+                  <option value="Web Design / Development">Web Design / Development</option>
+                  <option value="AI Collaboration">AI Collaboration</option>
+                  <option value="Internship / Job Opportunity">Internship / Job Opportunity</option>
+                  <option value="General Hello">General Hello</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="userMessage">Message *</label>
+                <textarea id="userMessage" name="message" rows="4" required placeholder="Tell me about your project, idea, or questions..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn" id="submitBtn">
+                <span>Send Message 🚀</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Direct Channels & Social Links -->
+          <div class="contact-aside">
+            <div class="direct-card">
+              <h4>Quick Contact</h4>
+              <p>Prefer direct messaging? Reach out through any of these platforms:</p>
+              
+              <div class="contact-links">
+                <a href="mailto:laraibfatima@example.com" class="chip main">
+                  <span>📧</span> Email: laraibfatima@example.com
+                </a>
+                <a href="https://wa.me/923000000000" target="_blank" rel="noopener" class="chip">
+                  <span>📱</span> WhatsApp Direct
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" class="chip">
+                  <span>💼</span> LinkedIn Profile
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener" class="chip">
+                  <span>🐙</span> GitHub Repository
+                </a>
+                <a href="https://behance.net" target="_blank" rel="noopener" class="chip">
+                  <span>🎨</span> Behance Portfolio
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== MODAL POPUP FOR WORK ===== -->
+  <div class="modal-overlay" id="workModal" onclick="closeWorkModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeWorkModal()">&times;</button>
+      <div id="modalIcon" style="font-size: 3rem; margin-bottom: 12px;">🪄</div>
+      <span id="modalTag" class="work-tag" style="float:none; margin-bottom: 10px; display:inline-block;">Tag</span>
+      <h3 id="modalTitle" style="font-size: 1.6rem; margin: 8px 0 12px;">Project Title</h3>
+      <p id="modalDesc" style="color: var(--soft); line-height: 1.6; margin-bottom: 24px;">Detailed project description will appear here.</p>
+      <a href="#contact" class="btn btn-dark" onclick="closeWorkModal();" style="width:100%; justify-content:center;">
+        Inquire About This Service ✦
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    Designed &amp; coded with 💛 by <b>Laraib Fatima</b> — &copy; 2025 • All Rights Reserved
+  </footer>
+
+  <!-- ===== JAVASCRIPT LOGIC ===== -->
+  <script>
+    // 1. Duplicate marquee content for a seamless loop
+    const marqueeTrack = document.getElementById('marqueeTrack');
+    if (marqueeTrack) {
+      marqueeTrack.innerHTML += marqueeTrack.innerHTML;
+    }
+
+    // 2. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+    }
+
+    function closeNav() {
+      if (navLinks) navLinks.classList.remove('open');
+    }
+
+    // 3. Reveal elements smoothly on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // 4. Fill skill progress bars when in viewport
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.dataset.w;
+        }
+      });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll('.bar-fill').forEach(el => barObserver.observe(el));
+
+    // 5. Contact Form Submission Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('portfolioContactForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const alertBox = document.getElementById('formAlert');
+      const name = document.getElementById('userName').value;
+
+      // Visual feedback: submitting
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Sending... ⏳</span>';
+
+      setTimeout(() => {
+        // Success feedback
+        alertBox.className = 'form-alert success';
+        alertBox.innerHTML = `🎉 Thank you, <strong>${name}</strong>! Your message has been received. Laraib will get back to you shortly!`;
+        
+        // Reset form
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Message Sent! ✨</span>';
+
+        setTimeout(() => {
+          submitBtn.innerHTML = '<span>Send Another Message 🚀</span>';
+        }, 3000);
+      }, 1000);
+    }
+
+    // 6. Work Details Modal
+    function openWorkModal(title, tag, desc, icon) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalTag').innerText = tag;
+      document.getElementById('modalDesc').innerText = desc;
+      document.getElementById('modalIcon').innerText = icon;
+      document.getElementById('workModal').classList.add('open');
+    }
+
+    function closeWorkModal(e) {
+      document.getElementById('workModal').classList.remove('open');
+    }
+
+    // Close modal on Esc key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeWorkModal();
+    });
+  </script>
+</body>
+</html>
